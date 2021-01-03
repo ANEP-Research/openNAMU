@@ -12,8 +12,7 @@ def edit_many_delete_2(conn, app_var):
         all_title = re.findall(r'([^\n]+)\n', flask.request.form.get('content', '').replace('\r\n', '\n') + '\n')
         for name in all_title:
             edit_delete.edit_delete_2(conn, name, app_var)
-
-            return redirect('/recent_changes')
+        return redirect('/recent_changes')
     else:
         return easy_minify(flask.render_template(skin_check(),
             imp = [load_lang('many_delete'), wiki_set(), custom(), other2([0, 0])],
